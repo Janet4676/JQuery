@@ -1,0 +1,53 @@
+1. $() : jQuery 함수를 의미함, $() 안에 css 선택자가 온다. 
+		$(). 메소드는 jQuery 함수를 통ㅎ 반환된 jQuery 객체의 메소드다. 
+		jQuery 객체란 : jQuery 함수를 반환한 결과를 말함.
+		
+		
+		<script>
+		//case 1
+		$(document).ready(function(){
+			$("p").click(function(){
+				$(this).hide();
+				});
+			});
+			
+		//case2 코딩양이 적어서 자주 사용
+		$(function(){
+			$("p").click(function(){
+				$(this).hide();
+				});
+			});
+			
+		//case 3 추천함.
+		function eClick(){
+		$(this).hide();
+		}
+			
+		function init(){
+		$("p").click(eClick);
+		}
+		$(init);		
+		
+		//(ex 1- case1
+		$("p").on({
+		    mouseenter: function(){
+		        $(this).css("background-color", "lightgray");
+		    }, 
+		    mouseleave: function(){
+		        $(this).css("background-color", "lightblue");
+		    }, 
+		    click: function(){
+		        $(this).css("background-color", "yellow");
+		    } 
+		});
+		
+		//(ex 1- case2
+		$("p").on("mouseenter mouseleave click")({
+		    function(){
+		        $(this).css("background-color", "yellow");
+		    } 
+		});
+		
+		
+			
+		</script>
